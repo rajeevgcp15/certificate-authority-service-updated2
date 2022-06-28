@@ -16,49 +16,36 @@ array = {}
 for allCAPoolTfstateInstances as address, rc {
  capoolname = tfstate.evaluate_attribute(rc,"name")
  capooltier = tfstate.evaluate_attribute(rc,"tier")
- //print(capoolname)
- //print(capooltier)
- 
-array[capoolname] = capooltier
-
-
-
+ array[capoolname] = capooltier
 }
+
 print("-----Tfstate Map------")
 print(array)
-print("  ")
-//print("---------------")
+
 array2 = {}
 for allCAPoolTfplanInstances as address, rc {
 cpool_name = plan.evaluate_attribute(rc, "name")
 cpool_tier = plan.evaluate_attribute(rc, "tier")
 
-//print(cpool_name)
-//print(cpool_tier)
 array2[cpool_name] = cpool_tier
-
-
 }
+
 print("-----TFPlan Map--------")
 print(array2)
-print("  ")
 
 array_main = {}
 
 for array as address,rc {
-//print(address)
-//print(rc)
 array_main[address] = rc
 }
 
 for array2 as address,rc {
-//print(address)
-//print(rc)
 array_main[address] = rc
 }
 
 print("-------Final Map after Merge--------")
 print(array_main)
+
 b = 0
 c = 0
 for allCertAuthorityInstances as address, rc {
@@ -68,12 +55,10 @@ for allCertAuthorityInstances as address, rc {
     b = a
     c = cert_pool_name
 }
-print("  ")
-print("  ")
+
 print("pool name:---> "+c)
 print("pool tier:---> "+b)
-print("  ")
-print("  ")
+
 
 messages = {}
 for allCertAuthorityInstances as address, rc {
