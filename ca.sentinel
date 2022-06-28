@@ -85,4 +85,4 @@ for allCertAuthorityInstances as address, rc {
 }
 GCP_CAS_CACMEK = rule { length(messages) is 0 }
 
-main = rule {true}
+main = rule {GCP_CAS_CACMEK}
